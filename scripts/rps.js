@@ -1,10 +1,10 @@
 function computerPlay () {
-    //Randomly choose a number between 1 and 3 and assign to x.
-    let x = Math.floor(Math.random() * (3)) + 1;
+    //Randomly choose a number between 1 and 3 and assign to compNumber.
+    let compNumber = Math.floor(Math.random() * (3)) + 1;
 
-    //Based on value of x assign rock (1), paper (2), or scissors (3).
+    //Based on value of compNumber assign rock (1), paper (2), or scissors (3) to compPlay.
     let compPlay = "";
-    switch (x) {
+    switch (compNumber) {
         case 1: 
             compPlay = "rock";
             break;
