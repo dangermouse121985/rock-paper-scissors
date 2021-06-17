@@ -82,7 +82,6 @@ function game () {
     if (playerScore === 5) {
         gameStatus.TextContent = 'Player Wins the Match!!';
         displayGS.appendChild(gameStatus);
-        //document.getElementById('winner').innerHTML = 'Player wins the match!!';
         roundScore = 0;
         playerScore = 0;
         compScore = 0;
@@ -91,7 +90,6 @@ function game () {
     else if (compScore === 5) {
         gameStatus.textContent = 'You lose. Computer wins the match :-(';
         displayGS.appendChild(gameStatus);
-        //document.getElementById('winner').innerHTML = 'You lose. Computer wins the match :-(';
         roundScore = 0;
         playerScore = 0;
         compScore = 0;
