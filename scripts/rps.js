@@ -1,3 +1,22 @@
+const displayPS = document.querySelector('#playerScore');
+const pScore = document.createElement('div');
+pScore.classList.add('content');
+pScore.textContent = '0';
+displayPS.appendChild(pScore);
+
+const displayCS = document.querySelector('#compScore');
+const cScore = document.createElement('div');
+cScore.classList.add('content');
+cScore.textContent = '0';
+displayCS.appendChild(cScore);
+
+const displayGS = document.querySelector('#game');
+const gameStatus = document.createElement('h3');
+gameStatus.classList.add('content');
+gameStatus.textContent = 'Players. Are. You. Ready?!?!';
+displayGS.appendChild(gameStatus);
+
+
 function computerPlay () {
     //Randomly choose a number between 1 and 3 and assign to compNumber.
     let compNumber = Math.floor(Math.random() * (3)) + 1;
@@ -17,35 +36,11 @@ function computerPlay () {
     return compPlay;
 }
 
-function playRound () {
-    //Set playerChoice to lower case and assign to playerSelection
-    let playerSelection = '';
-
-    //Creates array of valid selections. Will be used to compare the player inputs
-    let validSelections = ['rock', 'paper', 'scissors'];
-
-    //Prompt the user to enter either rock, paper, or scissors. Coverts string to lower case.
-    playerSelection = prompt('Rock, Paper, or Scissors');
-
-    playerSelection = playerSelection.toLowerCase();
-    
-    //Compares player input to validSelections array. If the input is not found, prompt the user to enter a valid input. Continue to prompt if a valid input is not found
-    while (validSelections.includes(playerSelection) === false) {
-        playerSelection = prompt('Please enter a valid selection. Rock, Paper, or Scissors');
-        playerSelection = playerSelection.toLowerCase();
-    } 
-
+function playRound (playerSelection) {
     //Call ComputerPlay function and assign computer's play (rock, paper, or scissors) to compSelection
     let compSelection = computerPlay();
 
-    /* Compare playerSelection to CompSelection.
-    ---Both Values are the same = Tie. Return 3.
-    ---Player plays Rock and Computer plays scissors. Player Wins Return 1
-    ---Player plays scissors and computer plays paper. Player wins. Return 1
-    ---Player plays paper and computer plays rock. Player wins. Retur 1
-    ---Computer plays Rock and Player plays scissors. Computer Wins Return 2
-    ---Computer plays scissors and Player plays paper. Computer wins. Return 2
-    ---Computer plays paper and Player plays rock. Computer wins. Retur 2 */
+    /* Compare playerSelection to CompSelection.*/
     if (playerSelection === compSelection){
         return 3;
     }
@@ -57,59 +52,73 @@ function playRound () {
     }
 }
 
-function game () {
-    //Start game with player score and computer score both equal to 0
-    let playerScore = 0;
-    let compScore = 0;
-
-    //initialize round score and set round number to 0
+function playerSelection(choice) {
+    roundScore = playRound(choice);
+    //If round score equals 1 add 1 to playerScore. If Round score = 2 add 1 to compScore. If round score = 3 go to next round.
+    switch (roundScore) {
+        case 1:
+            playerScore += 1;
+            gameStatus.textContent = 'Player wins round ' + roundNum;
+            displayGS.appendChild(gameStatus);
+            break;
+        case 2:
+            compScore += 1;
+            gameStatus.textContent = 'Computer wins round ' + roundNum;
+            displayGS.appendChild(gameStatus);
+            break;
+        case 3:
+            gameStatus.textContent = 'Tying is like kissing your sister. Do better!';
+            displayGS.appendChild(gameStatus);
+    }
+    pScore.textContent = playerScore;
+    displayPS.appendChild(pScore);
     
-    let roundNum = 0;
-
-    //Call playRound function and run until player or computer have a score of 5
-    while (playerScore < 5 && compScore < 5) {
-        //Call playRound function and assign to roundScore
-
-        let roundScore = 0;
-
-        /* while (roundScore === 0) {
-            const btn = document.querySelector('#btn');
-
-            btn.addEventListener('click', () => {
-                roundScore = playRound();
-            }); 
-            //document.getElementById('playRound').addEventListener('click', roundScore = playRound());
-        } */
-
-        roundScore = playRound();
-        //If round score equals 1 add 1 to playerScore. If Round score = 2 add 1 to compScore. If round score = 3 go to next round.
-        switch (roundScore) {
-            case 1:
-                playerScore += 1;
-                console.log('Player wis round ' + roundNum);
-                document.getElementById('test').innerHTML = 'Player wis round ' + roundNum +'!!';
-                break;
-            case 2:
-                compScore += 1;
-                console.log('Computer wins round ' + roundNum);
-                //document.getElementById('test').innerHTML = 'Computer wins round ' + roundNum + '!!';
-                break;
-            case 3:
-                console.log('Tying is like kissing your sister. Do better!')
-                //document.getElementById('test').innerHTML = 'Tying is like kissing your sister. do better!';
-        }
-        console.log('Player Score: ' + playerScore);
-        console.log('Computer Score: ' + compScore);
-        console.log(playerScore < 5 || compScore < 5)
-        roundNum++;
-    }
-
-    if (playerScore === 5) {
-        console.log('Player wins the match!!');
-        //document.getElementById('winner').innerHTML = 'Player wins the match!!';
-    }
-    else {
-        console.log('You lose. Computer wins the match :-(');
-        //document.getElementById('winner').innerHTML = 'You lose. Computer wins the match :-(';
-    }
+    cScore.textContent = compScore;
+    displayCS.appendChild(cScore);
+    roundNum++;
 }
+
+function game () {
+    if (playerScore === 5) {
+        gameStatus.TextContent = 'Player Wins the Match!!';
+        displayGS.appendChild(gameStatus);
+        //document.getElementById('winner').innerHTML = 'Player wins the match!!';
+        roundScore = 0;
+        playerScore = 0;
+        compScore = 0;
+        roundNum = 1;
+    }
+    else if (compScore === 5) {
+        gameStatus.textContent = 'You lose. Computer wins the match :-(';
+        displayGS.appendChild(gameStatus);
+        //document.getElementById('winner').innerHTML = 'You lose. Computer wins the match :-(';
+        roundScore = 0;
+        playerScore = 0;
+        compScore = 0;
+        roundNum = 1;
+    }
+    
+}
+
+let roundScore = 0;
+let playerScore = 0;
+let compScore = 0;
+let roundNum = 1;
+
+const rock = document.querySelector('#rock');
+rock.addEventListener('click', function() {
+    playerSelection('rock');
+    game();
+}); 
+
+const paper = document.querySelector('#paper');
+paper.addEventListener('click', function() {
+    playerSelection('paper');
+    game();
+});
+
+const scissors = document.querySelector('#scissors');
+scissors.addEventListener('click', function() {
+    playerSelection('scissors');
+    game();
+});
