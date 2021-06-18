@@ -1,0 +1,26 @@
+#parentContainer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+}
+
+#gameButtons {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.playerButtons {
+    width: 175px;
+    height: 150px
+    padding: 30px;
+}
+
+
+#score {
+    padding: 50px;
+}

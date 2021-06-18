@@ -80,7 +80,7 @@ function playerSelection(choice) {
 
 function game () {
     if (playerScore === 5) {
-        gameStatus.TextContent = 'Player Wins the Match!!';
+        gameStatus.textContent = 'Player Wins the Match!!';
         displayGS.appendChild(gameStatus);
         roundScore = 0;
         playerScore = 0;
