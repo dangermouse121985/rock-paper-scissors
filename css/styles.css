@@ -1,3 +1,7 @@
+@font-face {
+    font-family: 'scoreBoard';
+    src: url('/fonts/Digital\ Dismay.otf');
+}
 #parentContainer {
     position: relative;
     display: flex;
@@ -8,19 +12,46 @@
     min-height: 100vh;
 }
 
+.playerButtons {
+    width: 175px;
+    height: 250px;
+    padding: 30px;
+    top: 50%;
+}
+
 #gameButtons {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    width: 100%
 }
-.playerButtons {
-    width: 175px;
-    height: 150px
-    padding: 30px;
-}
-
 
 #score {
-    padding: 50px;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+}
+
+#scoreCards {
+    display: flex;
+    text-align: center;
+    margin: 10px auto;
+    width: 33%;
+}
+
+.scoreFloat {
+    margin: 0 auto;
+    font-family: 'scoreBoard';
+    font-size: 30px;
+}
+
+.scoreBoardTitle {
+    font-family: sans-serif;
+}
+
+.choices {
+    width: 175px;
+    height: 250px;
+    padding: 100px 30px;
 }

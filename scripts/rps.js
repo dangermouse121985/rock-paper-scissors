@@ -16,6 +16,60 @@ gameStatus.classList.add('content');
 gameStatus.textContent = 'Players. Are. You. Ready?!?!';
 displayGS.appendChild(gameStatus);
 
+const gameButtons = document.querySelector('#gameButtons');
+let rockButton = document.createElement('img');
+rockButton.src = '/images/rock.png';
+rockButton.id = 'rock';
+rockButton.className = 'playerButtons';
+let paperButton = document.createElement('img');
+paperButton.src = '/images/paper.png';
+paperButton.id = 'paper';
+paperButton.className = 'playerButtons';
+let scissorsButton = document.createElement('img');
+scissorsButton.src = '/images/scissors.png';
+scissorsButton.id = 'scissors';
+scissorsButton.className = "playerButtons"
+gameButtons.appendChild(rockButton);
+gameButtons.appendChild(paperButton);
+gameButtons.appendChild(scissorsButton);
+
+const choices = document.querySelector('#choices');
+let pChoice = document.createElement('img');
+pChoice.id = 'player';
+pChoice.className = 'choices'
+let cChoice = document.createElement('img');
+cChoice.id = 'computer';
+cChoice.className = 'choices';
+
+let roundScore = 0;
+let playerScore = 0;
+let compScore = 0;
+let roundNum = 1;
+
+
+const rock = document.querySelector('#rock');
+rock.addEventListener('click', function() {
+    playerSelection('rock');
+    pChoice.src = '/images/rock.png'
+    choices.appendChild(pChoice);
+    game();
+}); 
+
+const paper = document.querySelector('#paper');
+paper.addEventListener('click', function() {
+    playerSelection('paper');
+    pChoice.src = '/images/paper.png'
+    choices.appendChild(pChoice);
+    game();
+});
+
+const scissors = document.querySelector('#scissors');
+scissors.addEventListener('click', function() {
+    playerSelection('scissors');
+    pChoice.src = '/images/scissors.png'
+    choices.appendChild(pChoice);
+    game();
+});
 
 function computerPlay () {
     //Randomly choose a number between 1 and 3 and assign to compNumber.
@@ -39,6 +93,20 @@ function computerPlay () {
 function playRound (playerSelection) {
     //Call ComputerPlay function and assign computer's play (rock, paper, or scissors) to compSelection
     let compSelection = computerPlay();
+
+    
+    if (compSelection === 'rock') {
+        cChoice.src = '/images/rock.png'
+        choices.appendChild(cChoice);
+    } else if (compSelection === 'paper') {
+        cChoice.src = '/images/paper.png'
+        choices.appendChild(cChoice);
+    } else {
+        cChoice.src = '/images/scissors.png'
+        choices.appendChild(cChoice);
+    }
+    
+    
 
     /* Compare playerSelection to CompSelection.*/
     if (playerSelection === compSelection){
@@ -98,25 +166,4 @@ function game () {
     
 }
 
-let roundScore = 0;
-let playerScore = 0;
-let compScore = 0;
-let roundNum = 1;
 
-const rock = document.querySelector('#rock');
-rock.addEventListener('click', function() {
-    playerSelection('rock');
-    game();
-}); 
-
-const paper = document.querySelector('#paper');
-paper.addEventListener('click', function() {
-    playerSelection('paper');
-    game();
-});
-
-const scissors = document.querySelector('#scissors');
-scissors.addEventListener('click', function() {
-    playerSelection('scissors');
-    game();
-});
