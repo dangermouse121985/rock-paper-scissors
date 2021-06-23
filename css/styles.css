@@ -50,8 +50,44 @@
     font-family: sans-serif;
 }
 
-.choices {
+#choicesContainer {
+    width: 390px;
+}
+
+#player {
+    display: inline-block;
+    padding: 100px 10px;
+    width: 175px;
+    height: 200px;
+    float: left;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#computer {
+    display: inline-block;
+    padding: 100px 10px;
+    width: 175px;
+    height: 200px;
+    float: left;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#player img{
+    display: inline-block;
+    padding: 10px 0px;
     width: 175px;
     height: 250px;
-    padding: 100px 30px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#computer img {
+    display: inline-block;
+    padding: 10px 0px;
+    width: 175px;
+    height: 250px;
+    margin: 0 auto;
+    text-align: center;
 }

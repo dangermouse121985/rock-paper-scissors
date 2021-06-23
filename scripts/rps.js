@@ -1,17 +1,19 @@
 const displayPS = document.querySelector('#playerScore');
 const pScore = document.createElement('div');
+pScore.id = 'pScore';
 pScore.classList.add('content');
 pScore.textContent = '0';
 displayPS.appendChild(pScore);
 
 const displayCS = document.querySelector('#compScore');
 const cScore = document.createElement('div');
+cScore.id = 'cScore';
 cScore.classList.add('content');
 cScore.textContent = '0';
 displayCS.appendChild(cScore);
 
 const displayGS = document.querySelector('#game');
-const gameStatus = document.createElement('h3');
+const gameStatus = document.createElement('h2');
 gameStatus.classList.add('content');
 gameStatus.textContent = 'Players. Are. You. Ready?!?!';
 displayGS.appendChild(gameStatus);
@@ -33,13 +35,10 @@ gameButtons.appendChild(rockButton);
 gameButtons.appendChild(paperButton);
 gameButtons.appendChild(scissorsButton);
 
-const choices = document.querySelector('#choices');
+const pChoiceContainer = document.querySelector('#player');
+const cChoiceContainer = document.querySelector('#computer');
 let pChoice = document.createElement('img');
-pChoice.id = 'player';
-pChoice.className = 'choices'
 let cChoice = document.createElement('img');
-cChoice.id = 'computer';
-cChoice.className = 'choices';
 
 let roundScore = 0;
 let playerScore = 0;
@@ -50,24 +49,24 @@ let roundNum = 1;
 const rock = document.querySelector('#rock');
 rock.addEventListener('click', function() {
     playerSelection('rock');
-    pChoice.src = '/images/rock.png'
-    choices.appendChild(pChoice);
+    pChoice.src = '/images/rock_blue.png';
+    pChoiceContainer.appendChild(pChoice);
     game();
 }); 
 
 const paper = document.querySelector('#paper');
 paper.addEventListener('click', function() {
     playerSelection('paper');
-    pChoice.src = '/images/paper.png'
-    choices.appendChild(pChoice);
+    pChoice.src = '/images/paper_blue.png';
+    pChoiceContainer.appendChild(pChoice);
     game();
 });
 
 const scissors = document.querySelector('#scissors');
 scissors.addEventListener('click', function() {
     playerSelection('scissors');
-    pChoice.src = '/images/scissors.png'
-    choices.appendChild(pChoice);
+    pChoice.src = '/images/scissors_blue.png';
+    pChoiceContainer.appendChild(pChoice);
     game();
 });
 
@@ -96,14 +95,14 @@ function playRound (playerSelection) {
 
     
     if (compSelection === 'rock') {
-        cChoice.src = '/images/rock.png'
-        choices.appendChild(cChoice);
+        cChoice.src = '/images/rock_red.png';
+        cChoiceContainer.appendChild(cChoice);
     } else if (compSelection === 'paper') {
-        cChoice.src = '/images/paper.png'
-        choices.appendChild(cChoice);
+        cChoice.src = '/images/paper_red.png';
+        cChoiceContainer.appendChild(cChoice);
     } else {
-        cChoice.src = '/images/scissors.png'
-        choices.appendChild(cChoice);
+        cChoice.src = '/images/scissors_red.png';
+        cChoiceContainer.appendChild(cChoice);
     }
     
     
@@ -150,20 +149,18 @@ function game () {
     if (playerScore === 5) {
         gameStatus.textContent = 'Player Wins the Match!!';
         displayGS.appendChild(gameStatus);
-        roundScore = 0;
-        playerScore = 0;
-        compScore = 0;
-        roundNum = 1;
+        sessionStorage.setItem('cScore', compScore);
+        window.open('/playerWins.html', '_self');
     }
     else if (compScore === 5) {
-        gameStatus.textContent = 'You lose. Computer wins the match :-(';
-        displayGS.appendChild(gameStatus);
-        roundScore = 0;
-        playerScore = 0;
-        compScore = 0;
-        roundNum = 1;
+        //gameStatus.textContent = 'You lose. Computer wins the match :-(';
+        //displayGS.appendChild(gameStatus);
+        sessionStorage.setItem('pScore', playerScore);
+        window.open('/compWins.html', '_self');
     }
     
 }
+
+
 
 

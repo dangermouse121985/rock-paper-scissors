@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Computer Wins</title>
+        <link rel="stylesheet" href="/css/styles.css">
+    </head>
+    <body>
+        
+        <h1>Player Wins: The Score was Player - 5</h1><h1>. Computer - </h1><span id="cScoreDsp"></span>
+        <button id="startOver">Play Again?</button>
+        
+
+        <script type="text/javascript" src="/scripts/rps.js"></script>
+        <script>
+            let pScoreFinal = sessionStorage.getItem('cScore');
+            const pScoreDisplay = document.querySelector('#cScoreDsp');
+            const playerScoreDisplay = document.createElement('h1');
+            playerScoreDisplay.textContent = pScoreFinal;
+            pScoreDisplay.appendChild(playerScoreDisplay);
+
+            const startOver = document.querySelector('#startOver');
+            startOver.addEventListener('click', function playAgain() {
+                window.open('index.html', '_self');
+                roundScore = 0;
+                playerScore = 0;
+                compScore = 0;
+                roundNum = 1;
+                
+            });
+        </script>
+    </body>
+</html>
