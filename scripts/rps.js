@@ -40,6 +40,8 @@ const cChoiceContainer = document.querySelector('#computer');
 let pChoice = document.createElement('img');
 let cChoice = document.createElement('img');
 
+const roundDeclare = document.querySelector('#roundNum');
+
 let roundScore = 0;
 let playerScore = 0;
 let compScore = 0;
@@ -50,6 +52,7 @@ const rock = document.querySelector('#rock');
 rock.addEventListener('click', function() {
     playerSelection('rock');
     pChoice.src = '/images/rock_blue.png';
+    pChoiceContainer.textContent = 'Player';
     pChoiceContainer.appendChild(pChoice);
     game();
 }); 
@@ -58,6 +61,7 @@ const paper = document.querySelector('#paper');
 paper.addEventListener('click', function() {
     playerSelection('paper');
     pChoice.src = '/images/paper_blue.png';
+    pChoiceContainer.textContent = 'Player';
     pChoiceContainer.appendChild(pChoice);
     game();
 });
@@ -66,6 +70,7 @@ const scissors = document.querySelector('#scissors');
 scissors.addEventListener('click', function() {
     playerSelection('scissors');
     pChoice.src = '/images/scissors_blue.png';
+    pChoiceContainer.textContent = 'Player';
     pChoiceContainer.appendChild(pChoice);
     game();
 });
@@ -96,12 +101,15 @@ function playRound (playerSelection) {
     
     if (compSelection === 'rock') {
         cChoice.src = '/images/rock_red.png';
+        cChoiceContainer.textContent = 'Computer';
         cChoiceContainer.appendChild(cChoice);
     } else if (compSelection === 'paper') {
         cChoice.src = '/images/paper_red.png';
+        cChoiceContainer.textContent = 'Computer';
         cChoiceContainer.appendChild(cChoice);
     } else {
         cChoice.src = '/images/scissors_red.png';
+        cChoiceContainer.textContent = 'Computer';
         cChoiceContainer.appendChild(cChoice);
     }
     
@@ -125,18 +133,20 @@ function playerSelection(choice) {
     switch (roundScore) {
         case 1:
             playerScore += 1;
-            gameStatus.textContent = 'Player wins round ' + roundNum;
+            gameStatus.textContent = 'Player wins round';
             displayGS.appendChild(gameStatus);
             break;
         case 2:
             compScore += 1;
-            gameStatus.textContent = 'Computer wins round ' + roundNum;
+            gameStatus.textContent = 'Computer wins round';
             displayGS.appendChild(gameStatus);
             break;
         case 3:
             gameStatus.textContent = 'Tying is like kissing your sister. Do better!';
             displayGS.appendChild(gameStatus);
     }
+
+    roundDeclare.textContent = 'Round ' + roundNum;
     pScore.textContent = playerScore;
     displayPS.appendChild(pScore);
     
