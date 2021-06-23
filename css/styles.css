@@ -2,6 +2,7 @@
     font-family: 'scoreBoard';
     src: url('/fonts/Digital\ Dismay.otf');
 }
+
 #parentContainer {
     position: relative;
     display: flex;
