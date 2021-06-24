@@ -92,3 +92,19 @@
     margin: 0 auto;
     text-align: center;
 }
+
+#winStart {
+    float: left;
+}
+
+#pScoreDsp {
+    float: left;
+}
+
+#cScoreDsp {
+    float: left;
+}
+
+#winEnd {
+    float: left;
+}
