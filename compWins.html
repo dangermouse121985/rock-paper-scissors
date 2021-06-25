@@ -4,18 +4,22 @@
         <meta charset="utf-8">
         <title>Computer Wins</title>
         <link rel="stylesheet" href="/css/styles.css">
+        <link rel="stylesheet" href="/css/winner.css">
+        <link rel="stylesheet" href="/css/fireworks.css">
     </head>
     <body>
-        <div>
-            <h1 id='winStart'>Computer Wins: The Score was 5-</h1>
-            <span id="pScoreDsp"></span>
-            <h1 id='winEnd'>.</h1>
+        <div id="winnerContainer">
+            <div id="message">
+                <div>
+                    <h1 id='winStart'>Computer Wins: The Score was 5-</h1>
+                    <span id="pScoreDsp"></span>
+                    <h1 id='winEnd'>.</h1>
+                </div>
+                
+                <button id="startOver" class="button">Play Again?</button>
+            </div>
         </div>
-        
-        <button id="startOver">Play Again?</button>
-        
-
-        <script type="text/javascript" src="/scripts/rps.js"></script>
+\
         <script>
             let pScoreFinal = sessionStorage.getItem('pScore');
             const pScoreDisplay = document.querySelector('#pScoreDsp');
