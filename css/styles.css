@@ -1,7 +1,17 @@
+
 @font-face {
     font-family: 'scoreBoard';
     src: url('/fonts/Digital\ Dismay.otf');
 }
+
+body {
+    margin:0;
+    padding:0;
+    overflow: hidden;
+    background-color: black;
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
 
 #parentContainer {
     position: relative;
@@ -22,7 +32,7 @@
 
 #gameButtons {
     position: absolute;
-    top: 50%;
+    top: 70%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100%
@@ -30,7 +40,7 @@
 
 #score {
     position: absolute;
-    top: 100%;
+    top: -50%;
     width: 100%;
 }
 
@@ -93,18 +103,6 @@
     text-align: center;
 }
 
-#winStart {
-    float: left;
-}
-
-#pScoreDsp {
-    float: left;
-}
-
-#cScoreDsp {
-    float: left;
-}
-
-#winEnd {
-    float: left;
+#roundNum {
+    font-size: 30px;
 }
