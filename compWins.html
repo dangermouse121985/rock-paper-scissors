@@ -13,22 +13,50 @@
                 <div>
                     <h1 id='winStart'>Computer Wins: The Score was 5-</h1>
                     <span id="pScoreDsp"></span>
-                    <h1 id='winEnd'>.</h1>
                 </div>
                 
                 <button id="startOver" class="button">Play Again?</button>
+                <button id="newGame" class="button">New Game, New Name</button>
             </div>
         </div>
 \
         <script>
             let pScoreFinal = sessionStorage.getItem('pScore');
-            const pScoreDisplay = document.querySelector('#pScoreDsp');
-            const playerScoreDisplay = document.createElement('h1');
-            playerScoreDisplay.textContent = pScoreFinal;
-            pScoreDisplay.appendChild(playerScoreDisplay);
+            let cScoreFinal = sessionStorage.getItem('cScore');
+            const winMessage = document.querySelector('#winStart');
+
+            if (cScoreFinal === null) {
+                winMessage.textContent = 'You quit. Computer wins by Default!';
+            } else {
+                winMessage.textContent = 'Computer Wins: The Score was 5-';
+                const pScoreDisplay = document.querySelector('#pScoreDsp');
+                const playerScoreDisplay = document.createElement('h1');
+                playerScoreDisplay.textContent = pScoreFinal + '.';
+                pScoreDisplay.appendChild(playerScoreDisplay);
+            }
+
+
+
+
+            // let pScoreFinal = sessionStorage.getItem('pScore');
+            // let cScoreFinal = sessionStorage.getItem('cScore');
+            // const pScoreDisplay = document.querySelector('#pScoreDsp');
+            // const playerScoreDisplay = document.createElement('h1');
+            // playerScoreDisplay.textContent = pScoreFinal;
+            // pScoreDisplay.appendChild(playerScoreDisplay);
 
             const startOver = document.querySelector('#startOver');
             startOver.addEventListener('click', function playAgain() {
+                window.open('index.html', '_self');
+                roundScore = 0;
+                playerScore = 0;
+                compScore = 0;
+                roundNum = 1;
+            });
+
+            const clearGame = document.querySelector('#newGame');
+            clearGame.addEventListener('click', function newGame () {
+				sessionStorage.clear();
                 window.open('index.html', '_self');
                 roundScore = 0;
                 playerScore = 0;

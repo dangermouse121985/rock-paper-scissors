@@ -1,0 +1,132 @@
+
+@font-face {
+    font-family: 'scoreBoard';
+    src: url('/fonts/Digital\ Dismay.otf');
+}
+
+body {
+    margin:0;
+    padding:0;
+    overflow: hidden;
+    background-color: #fff;
+    color: #000;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+
+#parentContainer {
+    height: 70vh;
+    width: 50vw;
+    display: grid;
+    grid-template-columns: 
+        [rock-start] 3fr
+        [rock-end] 1fr
+        [paper-start round-start] 2fr
+        [player-end empty-space] 1fr
+        [computer-start] 2fr
+        [round-end] 1fr
+        [paper-end] 2fr
+        [scissors-start] 1fr
+        [computer-end] 3fr;
+    grid-template-rows: 
+        [player-name] 1fr 
+        [player-choice] 4fr 
+        [score-title] .5fr 
+        [score] .5fr 
+        [round-num] 1fr
+        [round-message] 1fr 
+        [rps] 4fr;
+    grid-template-areas:
+        ". playerTitle playerTitle playerTitle . CompName CompName CompName ."
+        ". pChoice pChoice pChoice . cChoice cChoice cChoice ."
+        ". pScoreMess pScoreMess pScoreMess . cScoreMess cScoreMess cScoreMess ."
+        ". pScore pScore pScore . cScore cScore cScore ."
+        ". . . roundNum roundNum roundNum . . ."
+        "roundMess roundMess roundMess roundMess roundMess roundMess roundMess roundMess roundMess"
+        "rockCont rockCont . paperCont paperCont paperCont . scissorsCont scissorsCont";
+    justify-items: center;
+    align-items: end;
+    text-align: center;
+    margin: auto;
+    top: 50%;
+}
+
+#pChoiceTitle {
+    grid-area: playerTitle;
+    border-bottom: 1px solid #000;
+}
+
+#cChoiceTitle {
+    grid-area: CompName;
+    border-bottom: 1px solid #000;
+}
+
+#player {
+    grid-area: pChoice;
+    object-fit: contain;
+    align-self: end;
+}
+
+
+#computer {
+    grid-area: cChoice;
+    object-fit: contain;
+    align-self: end;
+}
+
+.choices {
+    object-fit: contain;
+    max-width: 60%;
+    max-height: 80%;
+}
+
+#pScoreTitle {
+    grid-area: pScoreMess;
+}
+
+#cScoreTitle {
+    grid-area: cScoreMess;
+}
+
+#playerScore {
+    grid-area: pScore;
+    font-family: scoreBoard;
+    font-size: 50px;
+}
+
+#compScore {
+    grid-area: cScore;
+    font-family: scoreBoard;
+    font-size: 50px;
+}
+
+#roundNum {
+    grid-area: roundNum;
+    font-size: 30px;
+}
+
+#game {
+    grid-area: roundMess;
+}
+
+#rock {
+    grid-area: rockCont;
+}
+
+#scissors {
+    grid-area: scissorsCont;
+}
+
+#paper {
+    grid-area: paperCont;
+}
+
+#rock #scissors #paper {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+img {
+    object-fit: contain;
+    max-width: 60%;
+    max-height: 80%;
+}

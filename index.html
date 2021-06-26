@@ -3,33 +3,28 @@
     <head>
         <meta charset="utf-8">
         <title>Rock, Paper, Scissors</title>
-        <link rel="stylesheet" href="/css/styles.css">
+        <link rel="stylesheet" href="/css/styles2.css">
     </head>
     <body>
         
         <div id="parentContainer">
-            <div id="choicesContainer">
-                <div id="player" class="choices"></div>
-                <div id="computer" class="choices"></div>
-            </div>
+            <div id="pChoiceTitle">Player Name</div>
+            <!-- <div id="player" class="choices"></div> -->
+            <img id="player" class="choices" src="//:00" alt="">
+            <div id="cChoiceTitle">Computer</div>
+            <!--<div id="computer" class="choices"></div>-->
+            <img id="computer" class="choices" src="//:00" alt="">
 
             <div id="roundNum"></div>
 
             <div id="game"></div>
-
-            <div id="gameButtons">
-                <div id="score">
-                    <div id = "scoreCards">
-                        <div id="pScoreCard" class = "scoreFloat">
-                            <div class = "scoreBoardTitle">Player Score: </div><div id="playerScore"></div>
-                        </div>
-
-                        <div id="cScoreCard" class = "scoreFloat">
-                            <div class = "scoreBoardTitle">Computer Score: </div><div id="compScore"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <div id="score"></div>
+            <div id="pScoreTitle" class = "scoreBoardTitle">Player Score: </div><div id="playerScore"></div>
+            <div id="cScoreTitle" class = "scoreBoardTitle">Computer Score: </div><div id="compScore"></div>
+           
+            <div id="rock" class="playerButtons"><img class="choiceOptImg" src="/images/rock.png" alt=""></div>
+            <div id="paper" class="playerButtons"><img class="choiceOptImg" src="/images/paper.png" alt=""></div>
+            <div id="scissors" class="playerButtons"><img class="choiceOptImg" src="/images/scissors.png" alt=""></div>
         </div>
         
         <script type="text/javascript" src="/scripts/rps.js"></script>

@@ -1,3 +1,17 @@
+let playerName = sessionStorage.getItem('playerName');
+
+if (!sessionStorage.getItem('playerName'))  {
+    playerName = prompt("Let's Play Rock, Paper, Scissors! What is your name?");
+}
+
+if (playerName === '') {
+    playerName = 'Player 1';
+} else if (playerName === null) {
+    sessionStorage.clear();
+    window.open('compWins.html', '_self');
+}
+const displayPlName = document.querySelector('#pChoiceTitle');
+displayPlName.textContent = playerName;
 const displayPS = document.querySelector('#playerScore');
 const pScore = document.createElement('div');
 pScore.id = 'pScore';
@@ -18,27 +32,29 @@ gameStatus.classList.add('content');
 gameStatus.textContent = 'Players. Are. You. Ready?!?!';
 displayGS.appendChild(gameStatus);
 
-const gameButtons = document.querySelector('#gameButtons');
-let rockButton = document.createElement('img');
-rockButton.src = '/images/rock.png';
-rockButton.id = 'rock';
-rockButton.className = 'playerButtons';
-let paperButton = document.createElement('img');
-paperButton.src = '/images/paper.png';
-paperButton.id = 'paper';
-paperButton.className = 'playerButtons';
-let scissorsButton = document.createElement('img');
-scissorsButton.src = '/images/scissors.png';
-scissorsButton.id = 'scissors';
-scissorsButton.className = "playerButtons"
-gameButtons.appendChild(rockButton);
-gameButtons.appendChild(paperButton);
-gameButtons.appendChild(scissorsButton);
+// const gameButtons = document.querySelector('#gameButtons');
+// let rockButton = document.createElement('img');
+// rockButton.src = '/images/rock.png';
+// rockButton.id = 'rock';
+// rockButton.className = 'playerButtons';
+// let paperButton = document.createElement('img');
+// paperButton.src = '/images/paper.png';
+// paperButton.id = 'paper';
+// paperButton.className = 'playerButtons';
+// let scissorsButton = document.createElement('img');
+// scissorsButton.src = '/images/scissors.png';
+// scissorsButton.id = 'scissors';
+// scissorsButton.className = "playerButtons"
+// gameButtons.appendChild(rockButton);
+// gameButtons.appendChild(paperButton);
+// gameButtons.appendChild(scissorsButton);
 
 const pChoiceContainer = document.querySelector('#player');
 const cChoiceContainer = document.querySelector('#computer');
 let pChoice = document.createElement('img');
 let cChoice = document.createElement('img');
+pChoice.id = 'pChoiceImg';
+cChoice.id = 'cChoiceImg';
 
 const roundDeclare = document.querySelector('#roundNum');
 
@@ -51,27 +67,24 @@ let roundNum = 1;
 const rock = document.querySelector('#rock');
 rock.addEventListener('click', function() {
     playerSelection('rock');
-    pChoice.src = '/images/rock_blue.png';
-    pChoiceContainer.textContent = 'Player';
-    pChoiceContainer.appendChild(pChoice);
+    pChoiceContainer.src = '/images/rock_blue.png';
+    //pChoiceContainer.appendChild(pChoice);
     game();
 }); 
 
 const paper = document.querySelector('#paper');
 paper.addEventListener('click', function() {
     playerSelection('paper');
-    pChoice.src = '/images/paper_blue.png';
-    pChoiceContainer.textContent = 'Player';
-    pChoiceContainer.appendChild(pChoice);
+    pChoiceContainer.src = '/images/paper_blue.png';
+    //pChoiceContainer.appendChild(pChoice);
     game();
 });
 
 const scissors = document.querySelector('#scissors');
 scissors.addEventListener('click', function() {
     playerSelection('scissors');
-    pChoice.src = '/images/scissors_blue.png';
-    pChoiceContainer.textContent = 'Player';
-    pChoiceContainer.appendChild(pChoice);
+    pChoiceContainer.src = '/images/scissors_blue.png';
+    //pChoiceContainer.appendChild(pChoice);
     game();
 });
 
@@ -100,17 +113,14 @@ function playRound (playerSelection) {
 
     
     if (compSelection === 'rock') {
-        cChoice.src = '/images/rock_red.png';
-        cChoiceContainer.textContent = 'Computer';
-        cChoiceContainer.appendChild(cChoice);
+        cChoiceContainer.src = '/images/rock_red.png';
+        //cChoiceContainer.appendChild(cChoice);
     } else if (compSelection === 'paper') {
-        cChoice.src = '/images/paper_red.png';
-        cChoiceContainer.textContent = 'Computer';
-        cChoiceContainer.appendChild(cChoice);
+        cChoiceContainer.src = '/images/paper_red.png';
+        //cChoiceContainer.appendChild(cChoice);
     } else {
-        cChoice.src = '/images/scissors_red.png';
-        cChoiceContainer.textContent = 'Computer';
-        cChoiceContainer.appendChild(cChoice);
+        cChoiceContainer.src = '/images/scissors_red.png';
+        //cChoiceContainer.appendChild(cChoice);
     }
     
     
@@ -142,8 +152,7 @@ function playerSelection(choice) {
             displayGS.appendChild(gameStatus);
             break;
         case 3:
-            gameStatus.textContent = 'Tying is like kissing your sister. Do better!';
-            displayGS.appendChild(gameStatus);
+            gameStatus.textContent = 'It\'s a tie. Be Better at this game.';
     }
 
     roundDeclare.textContent = 'Round ' + roundNum;
@@ -160,11 +169,13 @@ function game () {
         gameStatus.textContent = 'Player Wins the Match!!';
         displayGS.appendChild(gameStatus);
         sessionStorage.setItem('cScore', compScore);
+        sessionStorage.setItem('playerName', playerName);
         window.open('/playerWins.html', '_self');
     }
     else if (compScore === 5) {
         //gameStatus.textContent = 'You lose. Computer wins the match :-(';
         //displayGS.appendChild(gameStatus);
+        sessionStorage.setItem('cScore', compScore);
         sessionStorage.setItem('pScore', playerScore);
         window.open('/compWins.html', '_self');
     }
