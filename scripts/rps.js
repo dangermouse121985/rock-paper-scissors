@@ -8,7 +8,7 @@ if (playerName === '') {
     playerName = 'Player 1';
 } else if (playerName === null) {
     sessionStorage.clear();
-    window.open('compWins.html', '_self');
+    window.open('/rock-paper-scissors/compWins.html', '_self');
 }
 const displayPlName = document.querySelector('#pChoiceTitle');
 displayPlName.textContent = playerName;
@@ -50,21 +50,21 @@ let roundNum = 1;
 const rock = document.querySelector('#rock');
 rock.addEventListener('click', function() {
     playerSelection('rock');
-    pChoiceContainer.src = '/images/rock_blue.png';
+    pChoiceContainer.src = '/rock-paper-scissors/images/rock_blue.png';
     game();
 }); 
 
 const paper = document.querySelector('#paper');
 paper.addEventListener('click', function() {
     playerSelection('paper');
-    pChoiceContainer.src = '/images/paper_blue.png';
+    pChoiceContainer.src = '/rock-paper-scissors/images/paper_blue.png';
     game();
 });
 
 const scissors = document.querySelector('#scissors');
 scissors.addEventListener('click', function() {
     playerSelection('scissors');
-    pChoiceContainer.src = '/images/scissors_blue.png';
+    pChoiceContainer.src = '/rock-paper-scissors/images/scissors_blue.png';
     game();
 });
 
@@ -93,11 +93,11 @@ function playRound (playerSelection) {
 
     
     if (compSelection === 'rock') {
-        cChoiceContainer.src = '/images/rock_red.png';
+        cChoiceContainer.src = '/rock-paper-scissors/images/rock_red.png';
     } else if (compSelection === 'paper') {
-        cChoiceContainer.src = '/images/paper_red.png';
+        cChoiceContainer.src = '/rock-paper-scissors/images/paper_red.png';
     } else {
-        cChoiceContainer.src = '/images/scissors_red.png';
+        cChoiceContainer.src = '/rock-paper-scissors/images/scissors_red.png';
     }
     
     
@@ -147,12 +147,12 @@ function game () {
         displayGS.appendChild(gameStatus);
         sessionStorage.setItem('cScore', compScore);
         sessionStorage.setItem('playerName', playerName);
-        window.open('/playerWins.html', '_self');
+        window.open('/rock-paper-scissors/playerWins.html', '_self');
     }
     else if (compScore === 5) {
         sessionStorage.setItem('cScore', compScore);
         sessionStorage.setItem('pScore', playerScore);
-        window.open('/compWins.html', '_self');
+        window.open('/rock-paper-scissors/compWins.html', '_self');
     }
     
 }
