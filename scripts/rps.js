@@ -32,23 +32,6 @@ gameStatus.classList.add('content');
 gameStatus.textContent = 'Players. Are. You. Ready?!?!';
 displayGS.appendChild(gameStatus);
 
-// const gameButtons = document.querySelector('#gameButtons');
-// let rockButton = document.createElement('img');
-// rockButton.src = '/images/rock.png';
-// rockButton.id = 'rock';
-// rockButton.className = 'playerButtons';
-// let paperButton = document.createElement('img');
-// paperButton.src = '/images/paper.png';
-// paperButton.id = 'paper';
-// paperButton.className = 'playerButtons';
-// let scissorsButton = document.createElement('img');
-// scissorsButton.src = '/images/scissors.png';
-// scissorsButton.id = 'scissors';
-// scissorsButton.className = "playerButtons"
-// gameButtons.appendChild(rockButton);
-// gameButtons.appendChild(paperButton);
-// gameButtons.appendChild(scissorsButton);
-
 const pChoiceContainer = document.querySelector('#player');
 const cChoiceContainer = document.querySelector('#computer');
 let pChoice = document.createElement('img');
@@ -68,7 +51,6 @@ const rock = document.querySelector('#rock');
 rock.addEventListener('click', function() {
     playerSelection('rock');
     pChoiceContainer.src = '/images/rock_blue.png';
-    //pChoiceContainer.appendChild(pChoice);
     game();
 }); 
 
@@ -76,7 +58,6 @@ const paper = document.querySelector('#paper');
 paper.addEventListener('click', function() {
     playerSelection('paper');
     pChoiceContainer.src = '/images/paper_blue.png';
-    //pChoiceContainer.appendChild(pChoice);
     game();
 });
 
@@ -84,7 +65,6 @@ const scissors = document.querySelector('#scissors');
 scissors.addEventListener('click', function() {
     playerSelection('scissors');
     pChoiceContainer.src = '/images/scissors_blue.png';
-    //pChoiceContainer.appendChild(pChoice);
     game();
 });
 
@@ -114,13 +94,10 @@ function playRound (playerSelection) {
     
     if (compSelection === 'rock') {
         cChoiceContainer.src = '/images/rock_red.png';
-        //cChoiceContainer.appendChild(cChoice);
     } else if (compSelection === 'paper') {
         cChoiceContainer.src = '/images/paper_red.png';
-        //cChoiceContainer.appendChild(cChoice);
     } else {
         cChoiceContainer.src = '/images/scissors_red.png';
-        //cChoiceContainer.appendChild(cChoice);
     }
     
     
@@ -173,8 +150,6 @@ function game () {
         window.open('/playerWins.html', '_self');
     }
     else if (compScore === 5) {
-        //gameStatus.textContent = 'You lose. Computer wins the match :-(';
-        //displayGS.appendChild(gameStatus);
         sessionStorage.setItem('cScore', compScore);
         sessionStorage.setItem('pScore', playerScore);
         window.open('/compWins.html', '_self');
