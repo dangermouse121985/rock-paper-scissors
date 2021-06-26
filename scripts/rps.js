@@ -150,6 +150,7 @@ function game () {
         window.open('https://dangermouse121985.github.io/rock-paper-scissors/playerWins.html', '_self');
     }
     else if (compScore === 5) {
+        sessionStorage.setItem('playerName', playerName);
         sessionStorage.setItem('cScore', compScore);
         sessionStorage.setItem('pScore', playerScore);
         window.open('https://dangermouse121985.github.io/rock-paper-scissors/compWins.html', '_self');
