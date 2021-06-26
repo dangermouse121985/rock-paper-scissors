@@ -89,7 +89,6 @@ body {
 
 #playerScore {
     grid-area: pScore;
-    font-family: scoreBoard;
     font-size: 50px;
 }
 
