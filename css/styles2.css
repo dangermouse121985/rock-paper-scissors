@@ -115,6 +115,7 @@ body {
 
 img {
     object-fit: contain;
+    min-width: 60%;
     max-width: 80%;
     max-height: 100%;
 }
