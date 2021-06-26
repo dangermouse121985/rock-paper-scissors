@@ -74,8 +74,6 @@ body {
 
 .choices {
     object-fit: contain;
-    max-width: 60%;
-    max-height: 80%;
 }
 
 #pScoreTitle {
