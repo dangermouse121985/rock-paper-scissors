@@ -1,7 +1,7 @@
 
 @font-face {
     font-family: 'scoreBoard';
-    src: url('/rock-paper-scissors/fonts/DigitalDismay.otf');
+    src: url('fonts/DigitalDismay.otf');
 }
 
 body {
