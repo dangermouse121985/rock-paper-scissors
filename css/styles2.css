@@ -72,10 +72,6 @@ body {
     align-self: end;
 }
 
-.choices {
-    object-fit: contain;
-}
-
 #pScoreTitle {
     grid-area: pScoreMess;
 }
