@@ -1,8 +1,7 @@
-/* 
 @font-face {
     font-family: 'scoreBoard';
     src: url('fonts/DigitalDismay.otf');
-} */
+} 
 
 body {
     margin:0;
@@ -89,6 +88,7 @@ body {
 
 #playerScore {
     grid-area: pScore;
+    font-family: scoreBoard;
     font-size: 50px;
 }
 
