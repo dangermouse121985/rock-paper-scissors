@@ -3,9 +3,9 @@
     <head>
         <meta charset="utf-8">
         <title>Computer Wins</title>
-        <link rel="stylesheet" href="/rock-paper-scissors/css/styles2.css">
-        <link rel="stylesheet" href="/rock-paper-scissors/css/winner.css">
-        <link rel="stylesheet" href="/rock-paper-scissors/css/fireworks.css">
+        <link rel="stylesheet" href="css/styles2.css">
+        <link rel="stylesheet" href="css/winner.css">
+        <link rel="stylesheet" href="css/fireworks.css">
     </head>
     <body>
         <div id="winnerContainer">
@@ -38,7 +38,7 @@
 
             const startOver = document.querySelector('#startOver');
             startOver.addEventListener('click', function playAgain() {
-                window.open('/rock-paper-scissors/index.html', '_self');
+                window.open('index.html', '_self');
                 roundScore = 0;
                 playerScore = 0;
                 compScore = 0;
@@ -48,7 +48,7 @@
             const clearGame = document.querySelector('#newGame');
             clearGame.addEventListener('click', function newGame () {
 				sessionStorage.clear();
-                window.open('/rock-paper-scissors/index.html', '_self');
+                window.open('index.html', '_self');
                 roundScore = 0;
                 playerScore = 0;
                 compScore = 0;
