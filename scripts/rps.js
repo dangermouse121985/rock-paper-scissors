@@ -32,8 +32,8 @@ gameStatus.classList.add('content');
 gameStatus.textContent = 'Players. Are. You. Ready?!?!';
 displayGS.appendChild(gameStatus);
 
-const pChoiceContainer = document.querySelector('#player');
-const cChoiceContainer = document.querySelector('#computer');
+const pChoiceContainer = document.querySelector('#playerImg');
+const cChoiceContainer = document.querySelector('#computerImg');
 let pChoice = document.createElement('img');
 let cChoice = document.createElement('img');
 pChoice.id = 'pChoiceImg';

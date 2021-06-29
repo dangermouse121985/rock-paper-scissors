@@ -47,6 +47,8 @@ table {
 	border-spacing: 0;
 }
 
+
+
 @font-face {
     font-family: 'scoreBoard';
     src: url('fonts/Digitaldismay.otf');
@@ -80,8 +82,8 @@ body {
         [player-choice] 4fr 
         [score-title] .5fr 
         [score] .5fr 
-        [round-num] 1fr
-        [round-message] 1fr 
+        [round-num] 2fr
+        [round-message] 2fr 
         [rps] 4fr;
     grid-template-areas:
         ". playerTitle playerTitle playerTitle . CompName CompName CompName ."
@@ -98,14 +100,36 @@ body {
     top: 50%;
 }
 
+.choiceGrid {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    justify-items: center;
+    align-items: end;
+    text-align: center;
+    margin: auto;
+}
+
+#player {
+    grid-template-areas: "playerImg";
+}
+
+#computer {
+    grid-template-areas: "compImg";
+}
+
 #pChoiceTitle {
     grid-area: playerTitle;
     border-bottom: 1px solid #000;
+    margin-top: 10px;
 }
 
 #cChoiceTitle {
     grid-area: CompName;
     border-bottom: 1px solid #000;
+    margin-top: 10px;
 }
 
 #player {
@@ -114,11 +138,19 @@ body {
     align-self: end;
 }
 
+#playerImg {
+    grid-area: playerImg;
+}
+
 
 #computer {
     grid-area: cChoice;
     object-fit: contain;
     align-self: end;
+}
+
+#computerImg {
+    grid-area: compImg;
 }
 
 #pScoreTitle {
@@ -144,6 +176,7 @@ body {
 #roundNum {
     grid-area: roundNum;
     font-size: 30px;
+    height: 30px;
 }
 
 #game {
@@ -165,6 +198,7 @@ body {
 img {
     object-fit: contain;
     min-width: 80%;
-    max-width: 80%;
-    max-height: 100%;
+    max-width: 175px;
+    min-height: 80%;
+    max-height: 80%;
 }
