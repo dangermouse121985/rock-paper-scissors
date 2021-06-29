@@ -58,8 +58,8 @@ body {
     margin:0;
     padding:0;
     overflow: hidden;
-    background-color: #fff;
-    color: #000;
+    background-color: rgb(100, 100, 100);
+    color: #fff;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   }
 
@@ -122,13 +122,13 @@ body {
 
 #pChoiceTitle {
     grid-area: playerTitle;
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid #fff;
     margin-top: 10px;
 }
 
 #cChoiceTitle {
     grid-area: CompName;
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid #fff;
     margin-top: 10px;
 }
 
@@ -181,7 +181,7 @@ body {
 
 #game {
     grid-area: roundMess;
-    color: red;
+    color: #4caf50;
 }
 
 #rock {
