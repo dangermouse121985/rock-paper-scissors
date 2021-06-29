@@ -202,3 +202,7 @@ img {
     min-height: 80%;
     max-height: 80%;
 }
+
+#message {
+    font-size: 30px;
+}
