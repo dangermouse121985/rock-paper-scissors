@@ -29,7 +29,9 @@ displayCS.appendChild(cScore);
 const displayGS = document.querySelector('#game');
 const gameStatus = document.createElement('h2');
 gameStatus.classList.add('content');
-gameStatus.textContent = 'Players. Are. You. Ready?!?!';
+//gameStatus.textContent = 'Are. You. Ready?!?!';
+setTimeout(() => {gameStatus.textContent = playerName;}, 0);
+setTimeout(() => {gameStatus.textContent = 'Are. You. Ready?!?!';}, 1500);
 displayGS.appendChild(gameStatus);
 
 const pChoiceContainer = document.querySelector('#playerImg');
@@ -40,6 +42,8 @@ pChoice.id = 'pChoiceImg';
 cChoice.id = 'cChoiceImg';
 
 const roundDeclare = document.querySelector('#roundNum');
+roundDeclare.textContent = 'Let\'s Play!!';
+
 
 let roundScore = 0;
 let playerScore = 0;
